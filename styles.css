@@ -1,0 +1,322 @@
+/* Cores da paleta */
+:root {
+    --primary-blue: #3498db;
+    --secondary-blue: #eaf0f6;
+    --highlight-blue: #2980b9;
+    --text-dark: #2c3e50;
+    --button-color: #3498db;
+    --button-hover-color: #2980b9;
+    --whatsapp-green: #25D366;
+    --error-red: #e74c3c;
+}
+
+/* Estilos Gerais */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--secondary-blue);
+    color: var(--text-dark);
+}
+
+header {
+    background-color: var(--highlight-blue);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    width: 60px;
+    margin-right: 15px;
+}
+
+.search-bar {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid var(--primary-blue);
+    border-radius: 25px;
+    background-color: #FFFFFF;
+    color: var(--text-dark);
+    outline: none;
+    max-width: 500px;
+}
+
+.search-icon {
+    width: 30px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.category-selector {
+    margin-top: 80px; /* Espaço para a barra de navegação fixa */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--secondary-blue);
+    flex-wrap: wrap;
+}
+
+.category-selector button {
+    padding: 10px 20px;
+    border: 2px solid var(--primary-blue);
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    color: var(--text-dark);
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.category-selector button:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* Estilos do carrossel */
+.carousel-section {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+h2 {
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    font-size: 26px;
+    text-align: center;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1000px; /* Ajuste o tamanho máximo do carrossel se necessário */
+    margin: auto;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    align-items: center;
+    width: 100%;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item video {
+    border-radius: 15px;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.carousel-item img {
+    border-radius: 15px;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Estilos das setas do carrossel */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--highlight-blue);
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-control svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--text-dark);
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}
+
+/* Estilo de hover para setas */
+.carousel-control:hover {
+    background-color: var(--button-hover-color);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Seção de Enviar Redação */
+.submit-essay-section {
+    padding: 20px;
+    background-color: var(--highlight-blue);
+    border-radius: 10px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.submit-essay-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.drop-area {
+    border: 3px dashed var(--primary-blue);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--secondary-blue);
+    position: relative;
+    transition: background-color 0.3s;
+    width: 100%;
+    max-width: 600px;
+    cursor: pointer;
+    min-height: 150px; /* Garante uma altura mínima visível */
+}
+
+.drop-area.dragging {
+    background-color: var(--primary-blue);
+}
+
+.drop-instruction {
+    font-size: 16px;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+input[type="email"],
+input[type="text"] {
+    padding: 10px;
+    border: 2px solid var(--primary-blue);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 400px;
+    font-size: 16px;
+}
+
+button {
+    background-color: var(--button-color);
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: var(--button-hover-color);
+}
+
+button#whatsapp-button {
+    background-color: var(--whatsapp-green);
+}
+
+button#whatsapp-button:hover {
+    background-color: #1ebe56;
+}
+
+.response-message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--error-red);
+    color: #fff;
+    text-align: center;
+}
+/* Estilos para a seção de cálculo de média ENEM */
+.media-enem-container {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 16px;
+    color: #333;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#calculate-media-button {
+    background-color: #25D366;
+    border: none;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#calculate-media-button:hover {
+    background-color: #1DA851;
+}
+
+.result-message {
+    margin-top: 20px;
+}
+
+.result-message.hidden {
+    display: none;
+}
+
+.result-message h3 {
+    font-size: 20px;
+    color: #333;
+}
+
+.result-message p {
+    font-size: 16px;
+    color: #666;
+}
