@@ -16,6 +16,6 @@ Por que escolher nosso site?
 Acesse nosso site e explore as seções de vídeos, correção de redações e cálculo da média ENEM.
 Participe ativamente da nossa comunidade de estudo e tire o máximo proveito dos recursos disponíveis.
 Prepare-se com confiança e alcance a nota que você merece no ENEM!
-🔗 Clique aqui para começar sua jornada de preparação para o ENEM agora mesmo! []
+🔗 Clique aqui para começar sua jornada de preparação para o ENEM agora mesmo! [https://socorre-ai-vpg8.vercel.app/]
 
 💪 Sua preparação para o ENEM começa aqui. Vamos juntos rumo ao sucesso! 💪
