@@ -320,3 +320,168 @@ button#whatsapp-button:hover {
     font-size: 16px;
     color: #666;
 }
+/* Footer Styles */
+footer {
+    background-color: #002b5b; /* Azul escuro */
+    color: #ffffff; /* Branco */
+    padding: 40px 20px; /* Aumentar o espaçamento */
+    font-size: 0.9em; /* Tamanho da fonte */
+    border-top: 4px solid #0056a1; /* Azul mais claro */
+    margin-top: 60px; /* Espaço acima do footer */
+    position: relative;
+    clear: both;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px; /* Largura máxima */
+    margin: 0 auto; /* Centralizar o conteúdo */
+}
+
+.footer-section {
+    flex: 1;
+    margin: 20px;
+    min-width: 250px;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    font-weight: bold;
+    border-bottom: 2px solid #0056a1;
+    padding-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section ul {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin: 10px 0;
+}
+
+.footer-section ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #00aaff;
+    padding-left: 10px;
+}
+
+.footer-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-section form .input-group {
+    margin-bottom: 15px;
+}
+
+.footer-section form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #ffffff; /* Branco */
+}
+
+.footer-section form input,
+.footer-section form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #0056a1; /* Azul mais claro */
+    border-radius: 6px;
+    background-color: #ffffff; /* Branco para contraste */
+    color: #333333; /* Cor do texto */
+    font-size: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve para destaque */
+}
+
+.footer-section form input:focus,
+.footer-section form textarea:focus {
+    border-color: #00aaff; /* Azul claro quando em foco */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 170, 255, 0.5); /* Efeito de foco */
+}
+
+.footer-section form button {
+    background-color: #0056a1;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.footer-section form button:hover {
+    background-color: #003d7a;
+}
+
+.footer-section.social-media ul {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-section.social-media ul li {
+    margin: 0;
+}
+
+.footer-section.social-media ul li a {
+    display: inline-block;
+}
+
+.footer-section.social-media ul li img {
+    width: 24px; /* Tamanho padrão para ícones */
+    height: 24px;
+}
+
+.footer-logo {
+    display: block;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.footer-logo img {
+    max-width: 150px; /* Ajuste o tamanho conforme necessário */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.footer-logo img:hover {
+    transform: scale(1.1); /* Efeito de aumento ao passar o mouse */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #004080;
+    padding-top: 15px;
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.footer-bottom a {
+    color: #00aaff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
