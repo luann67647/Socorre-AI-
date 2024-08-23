@@ -68,6 +68,83 @@ function prevSlide(carouselId) {
 
     container.style.transform = `translateX(${newTransform}%)`;
 }
+// script.js
+
+// Adiciona um sticker ao chat
+function addSticker(stickerUrl) {
+    const chatBox = document.getElementById('chat-box');
+    const img = document.createElement('img');
+    img.src = stickerUrl;
+    img.style.maxWidth = '200px';
+    img.style.maxHeight = '200px';
+    img.style.borderRadius = '8px';
+    img.style.margin = '5px 0';
+    chatBox.appendChild(img);
+}
+
+// Lida com o envio do formulário
+document.getElementById('chat-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const nameInput = document.getElementById('name-input');
+    const messageInput = document.getElementById('message-input');
+    const fileInput = document.getElementById('file-input');
+    const chatBox = document.getElementById('chat-box');
+    const name = nameInput.value.trim() || 'Anônimo'; // Usa o nome ou 'Anônimo' se não estiver definido
+
+    // Envia a mensagem de texto
+    if (messageInput.value.trim()) {
+        const message = document.createElement('div');
+        message.innerHTML = `<strong>${name}:</strong> ${messageInput.value}`;
+        chatBox.appendChild(message);
+        messageInput.value = '';
+    }
+
+    // Envia o arquivo
+    if (fileInput.files.length > 0) {
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            const fileMessage = document.createElement('div');
+            if (file.type.startsWith('image/')) {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.style.maxWidth = '200px';
+                img.style.maxHeight = '200px';
+                img.style.borderRadius = '8px';
+                img.style.margin = '5px 0';
+                fileMessage.appendChild(img);
+            } else if (file.type.startsWith('audio/')) {
+                const audio = document.createElement('audio');
+                audio.controls = true;
+                audio.src = e.target.result;
+                audio.style.borderRadius = '8px';
+                audio.style.margin = '5px 0';
+                fileMessage.appendChild(audio);
+            } else if (file.type.startsWith('video/')) {
+                const video = document.createElement('video');
+                video.controls = true;
+                video.src = e.target.result;
+                video.style.maxWidth = '200px';
+                video.style.maxHeight = '200px';
+                video.style.borderRadius = '8px';
+                video.style.margin = '5px 0';
+                fileMessage.appendChild(video);
+            }
+            chatBox.appendChild(fileMessage);
+        };
+
+        reader.readAsDataURL(file);
+        fileInput.value = '';
+    }
+});
+
+// Abre o seletor de arquivos quando o botão de anexo é clicado
+document.getElementById('attach-button').addEventListener('click', function() {
+    document.getElementById('file-input').click();
+});
+
 // Adiciona um evento de envio ao formulário de chat
 document.getElementById('chat-form').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -196,3 +273,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
 });
+
