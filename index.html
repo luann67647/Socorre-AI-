@@ -392,17 +392,29 @@
 
 
     <!-- Adicione mais seções conforme necessário -->
+<!-- Seção de Comentários -->
+<section id="comments-section" class="carousel-section hidden">
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box"></div>
+        <div class="notification" id="notification"></div>
+        <form id="chat-form" enctype="multipart/form-data">
+            <input type="text" id="name-input" placeholder="Digite seu nome..." required>
+            <input type="text" id="message-input" placeholder="Digite uma mensagem...">
+            <input type="file" id="file-input" accept="image/*,video/*,audio/*" style="display: none;">
+            <button type="button" id="attach-button">📎</button>
+            <button type="submit">Enviar</button>
+        </form>
+        <div id="stickers-container" class="stickers-container">
+            <!-- Exemplos de stickers -->
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0n4BfjbjCM-HCS2_lpC7Q0bspkJwfHWvTPQ&s" alt="Sticker 1" class="sticker" onclick="addSticker('sticker1.png')">
+            <img src="https://cdn-icons-png.flaticon.com/512/4185/4185776.png" alt="Sticker 2" class="sticker" onclick="addSticker('sticker2.png')">
+            <!-- Adicione mais stickers conforme necessário -->
+        </div>
+    </div>
+</section>
 
-    <!-- Seção de Comentários -->
-    <section id="comments-section" class="carousel-section hidden">
-        <div class="chat-container">
-            <div class="chat-box" id="chat-box"></div>
-            <div class="notification" id="notification"></div>
-            <form id="chat-form">
-                <input type="text" id="message-input" placeholder="Digite uma mensagem..." required>
-                <button type="submit">Enviar</button>
-            </form>
-    </section>
+ 
+    
    <!-- Novo Footer -->
 <footer>
     <div class="footer-content">
@@ -469,6 +481,9 @@
     <script src="scripts.js"></script>
 </body>
 </html>
+
+
+
 
 
 
