@@ -240,6 +240,150 @@ document.getElementById('media-enem-form').addEventListener('submit', function(e
         document.getElementById('result-message').classList.remove('hidden');
     }
 });
+// script.js
+
+// Função para exibir a seção desejada
+function showSection(sectionId) {
+    document.querySelectorAll('.carousel-section').forEach(section => {
+        section.classList.add('hidden');
+    });
+    document.getElementById(sectionId).classList.remove('hidden');
+}
+
+// Função para carregar as redações postadas
+async function loadRedacoes() {
+    const redacoesList = document.getElementById('redacoes-list');
+    redacoesList.innerHTML = ''; // Limpa a lista antes de adicionar novas redações
+
+    try {
+        const response = await fetch('https://your-server-url.com/get-redacoes');
+        if (response.ok) {
+            const redacoes = await response.json();
+            redacoes.forEach(redacao => {
+                const redacaoItem = document.createElement('div');
+                redacaoItem.classList.add('redacao-item');
+                redacaoItem.innerHTML = `
+                    <h3>ID: ${redacao.id}</h3>
+                    <p><strong>Nome:</strong> ${redacao.nome}</p>
+                    <p><strong>Turma:</strong> ${redacao.turma}</p>
+                    <p><strong>Tema:</strong> ${redacao.tema}</p>
+                    <p><strong>Professora:</strong> ${redacao.professora}</p>
+                    <p><a href="${redacao.link}" target="_blank">Ver Redação</a></p>
+                    <img src="${redacao.imagem}" alt="Imagem da Redação">
+                `;
+                redacoesList.appendChild(redacaoItem);
+            });
+        } else {
+            alert('Erro ao carregar as redações.');
+        }
+    } catch (error) {
+        console.error('Erro ao carregar as redações:', error);
+        alert('Erro ao carregar as redações.');
+    }
+}
+
+// Obtém elementos do DOM
+const postarRedacaoForm = document.getElementById('postar-redacao-form');
+const avaliarRedacaoForm = document.getElementById('avaliar-redacao-form');
+const submissionMessage = document.getElementById('submission-message');
+const feedbackMessage = document.getElementById('feedback-message');
+
+// Adiciona eventos de envio aos formulários
+postarRedacaoForm.addEventListener('submit', async (event) => {
+    event.preventDefault(); // Previne o envio padrão do formulário
+
+    // Obtém os valores dos campos do formulário
+    const nome = document.getElementById('nome').value;
+    const turma = document.getElementById('turma').value;
+    const tema = document.getElementById('tema').value;
+    const professora = document.getElementById('professora').value;
+    const fileInput = document.getElementById('file-upload');
+
+    // Valida os campos
+    if (!fileInput.files.length) {
+        alert('Por favor, faça o upload de um arquivo de imagem.');
+        return;
+    }
+
+    // Cria um objeto FormData
+    const formData = new FormData();
+    formData.append('file', fileInput.files[0]);
+    formData.append('nome', nome);
+    formData.append('turma', turma);
+    formData.append('tema', tema);
+    formData.append('professora', professora);
+
+    try {
+        // Envia o formulário para o servidor
+        const response = await fetch('https://your-server-url.com/postar-redacao', {
+            method: 'POST',
+            body: formData,
+        });
+
+        // Verifica se o envio foi bem-sucedido
+        if (response.ok) {
+            submissionMessage.classList.remove('hidden');
+            loadRedacoes(); // Atualiza a lista de redações
+        } else {
+            alert('Erro ao postar a redação.');
+        }
+    } catch (error) {
+        console.error('Erro ao postar a redação:', error);
+        alert('Erro ao postar a redação.');
+    }
+});
+
+avaliarRedacaoForm.addEventListener('submit', async (event) => {
+    event.preventDefault(); // Previne o envio padrão do formulário
+
+    // Obtém os valores dos campos do formulário
+    const redacaoId = document.getElementById('redacao-id').value;
+    const repertorios = document.getElementById('repertorios').value;
+    const argumentacao = document.getElementById('argumentacao').value;
+    const coerencia = document.getElementById('coerencia').value;
+    const normas = document.getElementById('normas').value;
+    const comentarios = document.getElementById('comentarios').value;
+
+    // Valida os campos
+    if (!redacaoId || !repertorios || !argumentacao || !coerencia || !normas || !comentarios) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+    }
+
+    // Cria um objeto com os dados da avaliação
+    const avaliacao = {
+        redacaoId: redacaoId,
+        repertorios: repertorios,
+        argumentacao: argumentacao,
+        coerencia: coerencia,
+        normas: normas,
+        comentarios: comentarios
+    };
+
+    try {
+        // Envia a avaliação para o servidor
+        const response = await fetch('https://your-server-url.com/avaliar-redacao', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(avaliacao),
+        });
+
+        // Verifica se o envio foi bem-sucedido
+        if (response.ok) {
+            feedbackMessage.classList.remove('hidden');
+        } else {
+            alert('Erro ao enviar a avaliação.');
+        }
+    } catch (error) {
+        console.error('Erro ao enviar a avaliação:', error);
+        alert('Erro ao enviar a avaliação.');
+    }
+});
+
+// Carrega as redações quando a página é carregada
+window.addEventListener('load', loadRedacoes);
 
 
 // Função para exibir a seção correta com base na categoria selecionada
@@ -265,7 +409,121 @@ function submitComment(event) {
         commentsList.appendChild(commentItem);
         commentInput.value = ''; // Limpa o campo de comentário
     }
+}// script.js
+
+// Função para exibir seções
+function showSection(sectionId) {
+    document.querySelectorAll('.carousel-section').forEach(section => {
+        section.classList.add('hidden');
+    });
+    document.getElementById(sectionId).classList.remove('hidden');
 }
+
+// Lidar com o formulário de postagem de redação
+document.getElementById('postar-redacao-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const nome = document.getElementById('nome').value;
+    const turma = document.getElementById('turma').value;
+    const tema = document.getElementById('tema').value;
+    const professora = document.getElementById('professora').value;
+    const fileUpload = document.getElementById('file-upload').files[0];
+    const imageUrl = document.getElementById('image-url').value;
+    const pdfUrl = document.getElementById('pdf-url').value;
+    const textoRedacao = document.getElementById('texto-redacao').value;
+
+    if (!fileUpload && !imageUrl && !pdfUrl && !textoRedacao) {
+        alert('Por favor, faça o upload da imagem, cole o URL da imagem, cole o URL do PDF ou digite o texto da redação.');
+        return;
+    }
+
+    const redacoesList = document.getElementById('redacoes-list');
+    const redacaoItem = document.createElement('div');
+    redacaoItem.classList.add('redacao-item');
+
+    const currentDate = new Date();
+    const expirationDate = new Date(currentDate.getTime() + 7 * 24 * 60 * 60 * 1000); // 1 semana
+
+    let content;
+    if (fileUpload) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            content = `<img src="${e.target.result}" alt="Imagem da Redação">`;
+            redacaoItem.innerHTML = `
+                <h3>${nome} - ${turma}</h3>
+                <p>Tema: ${tema}</p>
+                <p>Professora: ${professora}</p>
+                <p>Postado em: ${currentDate.toLocaleDateString()}</p>
+                <p>Expira em: ${expirationDate.toLocaleDateString()}</p>
+                ${content}
+            `;
+            redacoesList.appendChild(redacaoItem);
+            document.getElementById('postar-redacao-form').reset();
+            document.getElementById('submission-message').classList.remove('hidden');
+        };
+        reader.readAsDataURL(fileUpload);
+    } else if (imageUrl) {
+        content = `<img src="${imageUrl}" alt="Imagem da Redação">`;
+        redacaoItem.innerHTML = `
+            <h3>${nome} - ${turma}</h3>
+            <p>Tema: ${tema}</p>
+            <p>Professora: ${professora}</p>
+            <p>Postado em: ${currentDate.toLocaleDateString()}</p>
+            <p>Expira em: ${expirationDate.toLocaleDateString()}</p>
+            ${content}
+        `;
+        redacoesList.appendChild(redacaoItem);
+        document.getElementById('postar-redacao-form').reset();
+        document.getElementById('submission-message').classList.remove('hidden');
+    } else if (pdfUrl) {
+        content = `<iframe src="${pdfUrl}" frameborder="0" style="width: 100%; height: 500px;"></iframe>`;
+        redacaoItem.innerHTML = `
+            <h3>${nome} - ${turma}</h3>
+            <p>Tema: ${tema}</p>
+            <p>Professora: ${professora}</p>
+            <p>Postado em: ${currentDate.toLocaleDateString()}</p>
+            <p>Expira em: ${expirationDate.toLocaleDateString()}</p>
+            ${content}
+        `;
+        redacoesList.appendChild(redacaoItem);
+        document.getElementById('postar-redacao-form').reset();
+        document.getElementById('submission-message').classList.remove('hidden');
+    } else if (textoRedacao) {
+        content = `<p>${textoRedacao}</p>`;
+        redacaoItem.innerHTML = `
+            <h3>${nome} - ${turma}</h3>
+            <p>Tema: ${tema}</p>
+            <p>Professora: ${professora}</p>
+            <p>Postado em: ${currentDate.toLocaleDateString()}</p>
+            <p>Expira em: ${expirationDate.toLocaleDateString()}</p>
+            ${content}
+        `;
+        redacoesList.appendChild(redacaoItem);
+        document.getElementById('postar-redacao-form').reset();
+        document.getElementById('submission-message').classList.remove('hidden');
+    }
+});
+
+// Lidar com o formulário de avaliação de redação
+document.getElementById('avaliar-redacao-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const redacaoNome = document.getElementById('redacao-nome').value;
+    const nota = document.getElementById('nota').value;
+    const repertorios = document.getElementById('repertorios').value;
+    const argumentacao = document.getElementById('argumentacao').value;
+    const coerencia = document.getElementById('coerencia').value;
+    const normas = document.getElementById('normas').value;
+    const comentarios = document.getElementById('comentarios').value;
+
+    // Implementar a lógica para avaliação (ex.: salvar dados em um banco de dados)
+    // Esta parte pode incluir envio para um servidor ou armazenamento local
+
+    // Limpar o formulário e exibir a mensagem de sucesso
+    document.getElementById('avaliar-redacao-form').reset();
+    document.getElementById('feedback-message').classList.remove('hidden');
+});
+
 
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('comment-form').addEventListener('submit', submitComment);
@@ -273,4 +531,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
 });
+
 
