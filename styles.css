@@ -864,4 +864,15 @@ button[type="submit"]:hover {
     height: auto;
     margin-top: 10px;
 }
+/* Regras gerais de estilo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
