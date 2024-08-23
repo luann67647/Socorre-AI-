@@ -864,6 +864,9 @@ button[type="submit"]:hover {
     height: auto;
     margin-top: 10px;
 }
+.hidden {
+    display: none;
+}
 /* Regras gerais de estilo */
 body {
     font-family: Arial, sans-serif;
@@ -875,4 +878,110 @@ body {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
+}
+
+/* Regras específicas para dispositivos móveis */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+    }
+    
+    p {
+        font-size: 1em;
+    }
+}
+/* styles.css */
+
+/* Esconde seções que não devem estar visíveis */
+.hidden {
+    display: none;
+}
+
+/* Estiliza a seção específica do quiz ENEM */
+#quiz-enem {
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Limita a largura máxima */
+}
+
+/* Container para o conteúdo do quiz */
+.quiz-container {
+    padding: 20px;
+    background-color: #f9f9f9; /* Fundo mais suave para contraste */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* Estiliza as perguntas do quiz */
+.quiz-question {
+    margin-bottom: 20px;
+}
+
+/* Estiliza o texto da pergunta */
+.quiz-question p {
+    font-size: 1.25em;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #333; /* Cor mais escura para maior legibilidade */
+}
+
+/* Estiliza os botões de resposta */
+.quiz-question button {
+    display: block;
+    width: calc(100% - 22px); /* Ajusta a largura para incluir padding */
+    margin: 5px 0;
+    padding: 12px;
+    border: none;
+    background-color: #007bff;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 1em;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Efeito de hover para os botões */
+.quiz-question button:hover {
+    background-color: #0056b3;
+}
+
+/* Efeito de foco para acessibilidade */
+.quiz-question button:focus {
+    outline: 3px solid #0056b3;
+    outline-offset: 2px;
+}
+
+/* Efeito de clique para feedback visual */
+.quiz-question button:active {
+    transform: scale(0.98);
+}
+
+/* Estiliza a área onde o resultado é exibido */
+#result {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #333;
+    margin-top: 20px;
+    text-align: center; /* Centraliza o resultado */
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+    .quiz-question p {
+        font-size: 1.1em; /* Ajusta o tamanho da fonte em telas menores */
+    }
+    
+    .quiz-question button {
+        width: 100%; /* Garante que os botões ocupem toda a largura disponível */
+    }
 }
