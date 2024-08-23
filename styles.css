@@ -1,488 +1,751 @@
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Socorre Ai!</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Barra de Pesquisa -->
-    <header>
-        <div class="search-bar-container">
-            <img src="https://chaton-files.s3.us-east-2.amazonaws.com/p/K0lW59djQxG55nxryIgv5/VwhrQG9AbLVIfrXR5PjPC/SfcqRYmXn2QBR4jqaiVSF1.jpeg" alt="Logo" class="logo">
-            <input type="text" class="search-bar" placeholder="Pesquisar...">
-        </div>
-    </header>
-
-    <!-- Seletor de Categoria -->
-    <section class="category-selector">
-        <button onclick="showSection('math-school')">Matemática (Escola)</button>
-        <button onclick="showSection('math-enem')">Matemática (ENEM)</button>
-        <button onclick="showSection('portuguese-school')">Português (Escola)</button>
-        <button onclick="showSection('portuguese-enem')">Português (ENEM)</button>
-        <button onclick="showSection('spanish-enem')">Espanhol (ENEM)</button>
-        <button onclick="showSection('english-enem')">Inglês (ENEM)</button>
-        <button onclick="showSection('science-videos')">Ciências da Natureza</button>
-        <button onclick="showSection('humanities-videos')">Ciências Humanas</button>
-        <button onclick="showSection('chemistry-school')">Química (Escola)</button>
-        <button onclick="showSection('school-files')">Arquivos Enem</button>
-        <button onclick="showSection('essays')">Redações</button>
-        <button onclick="showSection('aulao-redacao')">Aulão Redação</button>
-        <button onclick="showSection('correct-essay')">Media Enem</button>
-        <button onclick="showSection('comments-section')">Bate Papo</button>
-    </section>
-
-    <!-- Seção de Cálculo de Média ENEM -->
-<section id="media-enem" class="carousel-section hidden">
-    <h2>Cálculo da Média ENEM</h2>
-    <div id="media-enem-container" class="media-enem-container">
-        <form id="media-enem-form">
-            <div class="input-group">
-                <label for="nota-linguagens">Nota de Linguagens:</label>
-                <input type="number" id="nota-linguagens" name="nota-linguagens" min="0" max="1000" required>
-            </div>
-            <div class="input-group">
-                <label for="nota-matematica">Nota de Matemática:</label>
-                <input type="number" id="nota-matematica" name="nota-matematica" min="0" max="1000" required>
-            </div>
-            <div class="input-group">
-                <label for="nota-ciencias-natureza">Nota de Ciências da Natureza:</label>
-                <input type="number" id="nota-ciencias-natureza" name="nota-ciencias-natureza" min="0" max="1000" required>
-            </div>
-            <div class="input-group">
-                <label for="nota-ciencias-humanas">Nota de Ciências Humanas:</label>
-                <input type="number" id="nota-ciencias-humanas" name="nota-ciencias-humanas" min="0" max="1000" required>
-            </div>
-            <div class="input-group">
-                <label for="nota-redacao">Nota da Redação:</label>
-                <input type="number" id="nota-redacao" name="nota-redacao" min="0" max="1000" required>
-            </div>
-            <button id="calculate-media-button" type="submit">Calcular Média</button>
-        </form>
-        <div id="result-message" class="result-message hidden">
-            <h3>Resultado da Média ENEM</h3>
-            <p id="average-score">Média: </p>
-        </div>
-    </div>
-</section>
-
-<!-- Botão para exibir a seção de cálculo de média ENEM -->
-<button onclick="showSection('media-enem')">Calcular Média ENEM</button>
-
-     <!-- Espanhol (ENEM) -->
-<section id="spanish-enem" class="carousel-section hidden">
-    <h2>Vídeos de Espanhol (ENEM)</h2>
-    <div id="spanish-enem-carousel" class="carousel">
-        <button class="carousel-control prev" onclick="prevSlide('spanish-enem-carousel')">◀</button>
-        <div class="carousel-container">
-            <div class="carousel-item">
-                <a href="https://youtu.be/5bieErjqRno" target="_blank">
-                    <img src="https://i.ytimg.com/vi/5bieErjqRno/maxresdefault.jpg" alt="Vídeo de Espanhol" />
-                </a>
-            </div>
-            <!-- Adicione mais itens de vídeo conforme necessário -->
-        </div>
-        <button class="carousel-control next" onclick="nextSlide('spanish-enem-carousel')">▶</button>
-    </div>
-</section>
-
-<!-- Inglês (ENEM) -->
-<section id="english-enem" class="carousel-section hidden">
-    <h2>Vídeos de Inglês (ENEM)</h2>
-    <div id="english-enem-carousel" class="carousel">
-        <button class="carousel-control prev" onclick="prevSlide('english-enem-carousel')">◀</button>
-        <div class="carousel-container">
-            <div class="carousel-item">
-                <a href="https://youtu.be/B9GM8lItnkU" target="_blank">
-                    <img src="https://i.ytimg.com/vi/B9GM8lItnkU/maxresdefault.jpg" alt="Vídeo de Inglês" />
-                </a>
-            </div>
-            <!-- Adicione mais itens de vídeo conforme necessário -->
-        </div>
-        <button class="carousel-control next" onclick="nextSlide('english-enem-carousel')">▶</button>
-    </div>
-</section>
-
-<!-- Matemática (Escola) -->
-<section id="math-school" class="carousel-section hidden">
-    <h2>Vídeos de Matemática (Escola)</h2>
-    <div id="math-school-carousel" class="carousel">
-        <button class="carousel-control prev" onclick="prevSlide('math-school-carousel')">◀</button>
-        <div class="carousel-container">
-            <div class="carousel-item">
-                <a href="https://youtu.be/4sTUs4ll3dI" target="_blank">
-                    <img src="https://i.ytimg.com/vi/4sTUs4ll3dI/maxresdefault.jpg" alt="Vídeo de Matemática Escola" />
-                </a>
-            </div>
-            <!-- Adicione mais itens de vídeo conforme necessário -->
-        </div>
-        <button class="carousel-control next" onclick="nextSlide('math-school-carousel')">▶</button>
-    </div>
-</section>
-
-<!-- Matemática (ENEM) -->
-<section id="math-enem" class="carousel-section hidden">
-    <h2>Vídeos de Matemática (ENEM)</h2>
-    <div id="math-enem-carousel" class="carousel">
-        <button class="carousel-control prev" onclick="prevSlide('math-enem-carousel')">◀</button>
-        <div class="carousel-container">
-            <div class="carousel-item">
-                <a href="https://youtu.be/MSZdhDBoXe0" target="_blank">
-                    <img src="https://i.ytimg.com/vi/MSZdhDBoXe0/maxresdefault.jpg" alt="Vídeo de Matemática ENEM" />
-                </a>
-            </div>
-            <!-- Adicione mais itens de vídeo conforme necessário -->
-        </div>
-        <button class="carousel-control next" onclick="nextSlide('math-enem-carousel')">▶</button>
-    </div>
-</section>
-
-<!-- Português (Escola) -->
-<section id="portuguese-school" class="carousel-section hidden">
-    <h2>Vídeos de Português (Escola)</h2>
-    <div id="portuguese-school-carousel" class="carousel">
-        <button class="carousel-control prev" onclick="prevSlide('portuguese-school-carousel')">◀</button>
-        <div class="carousel-container">
-            <div class="carousel-item">
-                <a href="https://youtu.be/baP8RkBYRNw" target="_blank">
-                    <img src="https://i.ytimg.com/vi/baP8RkBYRNw/maxresdefault.jpg" alt="Vídeo de Português Escola" />
-                </a>
-            </div>
-            <!-- Adicione mais itens de vídeo conforme necessário -->
-        </div>
-        <button class="carousel-control next" onclick="nextSlide('portuguese-school-carousel')">▶</button>
-    </div>
-</section>
-
-<!-- Português (ENEM) -->
-<section id="portuguese-enem" class="carousel-section hidden">
-    <h2>Vídeos de Português (ENEM)</h2>
-    <div id="portuguese-enem-carousel" class="carousel">
-        <button class="carousel-control prev" onclick="prevSlide('portuguese-enem-carousel')">◀</button>
-        <div class="carousel-container">
-            <div class="carousel-item">
-                <a href="https://youtu.be/LMaE0gAsI04" target="_blank">
-                    <img src="https://i.ytimg.com/vi/LMaE0gAsI04/maxresdefault.jpg" alt="Vídeo de Português ENEM" />
-                </a>
-            </div>
-            <!-- Adicione mais itens de vídeo conforme necessário -->
-        </div>
-        <button class="carousel-control next" onclick="nextSlide('portuguese-enem-carousel')">▶</button>
-    </div>
-</section>
-
-<!-- Química (Escola) -->
-<section id="chemistry-school" class="carousel-section hidden">
-    <h2>Vídeos de Química Basica (Escola)</h2>
-    <div id="chemistry-school-carousel" class="carousel">
-        <button class="carousel-control prev" onclick="prevSlide('chemistry-school-carousel')">◀</button>
-        <div class="carousel-container">
-            <div class="carousel-item">
-                <a href="https://youtu.be/xRWeoTgfUak" target="_blank">
-                    <img src="https://i.ytimg.com/vi/xRWeoTgfUak/maxresdefault.jpg" alt="Vídeo de Química Escola" />
-                </a>
-            </div>
-            <!-- Adicione mais itens de vídeo conforme necessário -->
-        </div>
-        <button class="carousel-control next" onclick="nextSlide('chemistry-school-carousel')">▶</button>
-    </div>
-</section>
-<!-- Ciências da Natureza -->
-<section id="science-videos" class="carousel-section hidden">
-    <h2>Vídeos de Ciências da Natureza</h2>
-    <div id="science-videos-carousel" class="carousel">
-        <button class="carousel-control prev" onclick="prevSlide('science-videos-carousel')">◀</button>
-        <div class="carousel-container">
-            <!-- Física -->
-            <div class="carousel-item">
-                <a href="https://youtu.be/hxciSW_B8Hw" target="_blank">
-                    <img src="https://i.ytimg.com/vi/hxciSW_B8Hw/maxresdefault.jpg" alt="Vídeo de Física 1" />
-                </a>
-            </div>
-           
-            <!-- Química -->
-            <div class="carousel-item">
-                <a href="https://youtu.be/akKNhBT14gs" target="_blank">
-                    <img src="https://i.ytimg.com/vi/akKNhBT14gs/maxresdefault.jpg" alt="Vídeo de Química 1" />
-                </a>
-            </div>
-           
-            <!-- Biologia -->
-            <div class="carousel-item">
-                <a href="https://youtu.be/fo7JbUG5flY" target="_blank">
-                    <img src="https://i.ytimg.com/vi/fo7JbUG5flY/maxresdefault.jpg" alt="Vídeo de Biologia 1" />
-                </a>
-            </div>
-            
-            <!-- Adicione mais itens conforme necessário -->
-        </div>
-        <button class="carousel-control next" onclick="nextSlide('science-videos-carousel')">▶</button>
-    </div>
-</section>
-
-<!-- Ciências Humanas -->
-<section id="humanities-videos" class="carousel-section hidden">
-    <h2>Vídeos de Ciências Humanas</h2>
-    <div id="humanities-videos-carousel" class="carousel">
-        <button class="carousel-control prev" onclick="prevSlide('humanities-videos-carousel')">◀</button>
-        <div class="carousel-container">
-            <!-- História -->
-            <div class="carousel-item">
-                <a href="https://youtu.be/LxuTxkHAXeQ" target="_blank">
-                    <img src="https://i.ytimg.com/vi/LxuTxkHAXeQ/maxresdefault.jpg" alt="Vídeo de História 1" />
-                </a>
-            </div>
-            
-            <!-- Geografia -->
-            <div class="carousel-item">
-                <a href="https://youtu.be/nrzFMOq1k-w" target="_blank">
-                    <img src="https://i.ytimg.com/vi/nrzFMOq1k-w/maxresdefault.jpg" alt="Vídeo de Geografia 1" />
-                </a>
-            </div>
-          
-            <!-- Filosofia -->
-            <div class="carousel-item">
-                <a href="https://youtu.be/hCHoTVEnxZ0" target="_blank">
-                    <img src="https://i.ytimg.com/vi/hCHoTVEnxZ0/hqdefault.jpg" alt="Vídeo de Filosofia 1" />
-                </a>
-            </div>
-            
-            <!-- Sociologia -->
-            <div class="carousel-item">
-                <a href="https://youtu.be/Hoz3Vgaf_Ns" target="_blank">
-                    <img src="https://i.ytimg.com/vi/Hoz3Vgaf_Ns/sddefault.jpg" alt="Vídeo de Sociologia 1" />
-                </a>
-            </div>
-           
-            <!-- Adicione mais itens conforme necessário -->
-        </div>
-        <button class="carousel-control next" onclick="nextSlide('humanities-videos-carousel')">▶</button>
-    </div>
-</section>
-
-<!-- Arquivos Enem -->
-<section id="school-files" class="carousel-section hidden">
-    <h2>Arquivos Enem</h2>
-    <div id="school-files-carousel" class="carousel">
-        <button class="carousel-control prev" onclick="prevSlide('school-files-carousel')">◀</button>
-        <div class="carousel-container">
-            <div class="carousel-item">
-                <a href="https://viacarreira.com/conectivos-para-redacao/" target="_blank">
-                    <img src="https://viacarreira.com/wp-content/uploads/2020/09/lista-de-conectivos-para-redacao-scaled.jpg" alt="Arquivo Enem 1" />
-                </a>
-            </div>
-            <div class="carousel-item">
-                <a href="https://www.hotcourses.com.br/study-abroad-info/once-you-arrive/essay-como-fazer-uma-boa-redacao-na-faculdade/" target="_blank">
-                    <img src="https://images.ctfassets.net/szez98lehkfm/2GzKSxtTHidAWECl9jUoLH/3d000958a02f911189a7e7d5d0e70c88/MyIC_Inline_69922" alt="Arquivo Enem 2" />
-                </a>
-            </div>
-            <div class="carousel-item">
-                <a href="https://br.pinterest.com/pin/426575395961852977/" target="_blank">
-                    <img src="https://i.pinimg.com/originals/12/40/35/1240354a1e83f2d4b97e78a81fda9018.png" alt="Arquivo Enem 3" />
-                </a>
-            </div>
-            <div class="carousel-item">
-                <a href="https://www.passeidireto.com/arquivo/71940981/modelo-redacao-do-enem-nota-mil" target="_blank">
-                    <img src="https://files.passeidireto.com/31a49f42-2f60-4876-946d-16b6a3c3e250/bg1.png" alt="Arquivo Enem 4" />
-                </a>
-            </div>
-            <div class="carousel-item">
-                <a href="https://www.aerotd.com.br/decoleseufuturo/dicas-para-fazer-uma-boa-redacao/" target="_blank">
-                    <img src="https://www.aerotd.com.br/decoleseufuturo/wp-content/uploads/2020/06/boa-redacao.png" alt="Arquivo Enem 5" />
-                </a>
-            </div>
-            <!-- Adicione mais itens conforme necessário -->
-        </div>
-        <button class="carousel-control next" onclick="nextSlide('school-files-carousel')">▶</button>
-    </div>
-</section>
-
-<!-- Redações -->
-<section id="essays" class="carousel-section hidden">
-    <h2>Redações</h2>
-    <!-- Redações Nota 1000 -->
-    <div id="essays-1000-carousel" class="carousel">
-        <h3>Redações Nota 1000</h3>
-        <button class="carousel-control prev" onclick="prevSlide('essays-1000-carousel')">◀</button>
-        <div class="carousel-container">
-            <div class="carousel-item">
-                <a href="https://brasilescola.uol.com.br/redacao/redacao-nota-1000.htm" target="_blank">
-                    <img src="https://s4.static.brasilescola.uol.com.br/be/2023/08/redacao-notal-mil-andre.png" alt="Redação Nota 1000 - 1" />
-                </a>
-            </div>
-           
-            <!-- Adicione mais itens conforme necessário -->
-        </div>
-        <button class="carousel-control next" onclick="nextSlide('essays-1000-carousel')">▶</button>
-    </div>
-    <!-- Redações Nota 900 -->
-    <div id="essays-900-carousel" class="carousel">
-        <h3>Redações Nota 900</h3>
-        <button class="carousel-control prev" onclick="prevSlide('essays-900-carousel')">◀</button>
-        <div class="carousel-container">
-            <div class="carousel-item">
-                <a href="https://guiadoestudante.abril.com.br/redacao/mais-de-900-pontos-veja-algumas-das-melhores-redacoes-do-enem-2022" target="_blank">
-                    <img src="https://guiadoestudante.abril.com.br/wp-content/uploads/sites/4/2023/08/Untitled-design-20-1.png?&w=720&crop=1" alt="Redação Nota 900 - 1" />
-                </a>
-            </div>
-           
-            <!-- Adicione mais itens conforme necessário -->
-        </div>
-        <button class="carousel-control next" onclick="nextSlide('essays-900-carousel')">▶</button>
-    </div>
-    <!-- Redações Nota 800 -->
-    <div id="essays-800-carousel" class="carousel">
-        <h3>Redações Nota 800</h3>
-        <button class="carousel-control prev" onclick="prevSlide('essays-800-carousel')">◀</button>
-        <div class="carousel-container">
-            <div class="carousel-item">
-                <a href="imagem/redacao_800_1.pdf" target="_blank">
-                    <img src="https://files.passeidireto.com/e7584d6a-b4e3-474e-b351-82d0e95dec7f/e7584d6a-b4e3-474e-b351-82d0e95dec7f.jpeg" alt="Redação Nota 800 - 1" />
-                </a>
-            </div>
-          
-            <!-- Adicione mais itens conforme necessário -->
-        </div>
-        <button class="carousel-control next" onclick="nextSlide('essays-800-carousel')">▶</button>
-    </div>
-    <!-- Redações Nota 700 -->
-    <div id="essays-700-carousel" class="carousel">
-        <h3>Redações Nota 620</h3>
-        <button class="carousel-control prev" onclick="prevSlide('essays-700-carousel')">◀</button>
-        <div class="carousel-container">
-            <div class="carousel-item">
-                <a href="https://preview.redd.it/avaliem-a-minha-reda%C3%A7%C3%A3o-do-enem-de-2022-em-que-eu-posso-v0-vuioqp6yyxlb1.jpg?width=640&crop=smart&auto=webp&s=170aab6bd6229212f4b98fc70a06b9aff2bb78ac" target="_blank">
-                    <img src="https://preview.redd.it/avaliem-a-minha-reda%C3%A7%C3%A3o-do-enem-de-2022-em-que-eu-posso-v0-vuioqp6yyxlb1.jpg?width=640&crop=smart&auto=webp&s=170aab6bd6229212f4b98fc70a06b9aff2bb78ac" alt="Redação Nota 700 - 1" />
-                </a>
-            </div>
-          
-            <!-- Adicione mais itens conforme necessário -->
-        </div>
-        <button class="carousel-control next" onclick="nextSlide('essays-700-carousel')">▶</button>
-    </div>
-</section>
-<!-- Aulão Redação -->
-<section id="aulao-redacao" class="carousel-section hidden">
-    <h2> Aulão de Redação</h2>
-    <div id="aulao-redacao-carousel" class="carousel">
-        <button class="carousel-control prev" onclick="prevSlide('aulao-redacao-carousel')">◀</button>
-        <div class="carousel-container">
-            <div class="carousel-item">
-                <a href="https://youtu.be/8OF609J8HLU" target="_blank">
-                    <img src="https://i.ytimg.com/vi/8OF609J8HLU/maxresdefault.jpg" alt="Vídeo de Aulão de Redação" />
-                </a>
-            </div>
-        </div>
-        <button class="carousel-control next" onclick="nextSlide('aulao-redacao-carousel')">▶</button>
-    </div>
-</section>
+/* Cores da paleta */
+:root {
+    --primary-blue: #3498db; /* Mantém a cor principal */
+    --secondary-blue: #eaf0f6; /* Cor de fundo clara */
+    --highlight-blue: #2980b9; /* Azul mais escuro para destaques */
+    --text-dark: #2c3e50; /* Texto escuro para bom contraste */
+    --border-color: #bdc3c7; /* Um tom neutro mais escuro */
+--button-color: #2a8fd4; /* Um tom mais próximo do primary blue */
+--button-hover-color: #1f6fa7; /* Um tom mais escuro, mas não muito contrastante */
 
 
 
+    /* Ajustes nas novas cores sugeridas */
+    --button-color: #2a8fd4; /* Azul mais próximo do primary blue */
+    --button-hover-color: #1f6fa7; /* Azul mais escuro para hover */
+    --whatsapp-green: #25D366; /* Verde do WhatsApp */
+    --error-red: #e74c3c; /* Vermelho para erros */
+    --success-green: #27ae60; /* Verde para sucesso e confirmações */
 
+    /* Cores adicionais para complementar */
+    --background-light: #f4f6f9; /* Um tom neutro claro para fundo */
+    --border-color: #bdc3c7; /* Cor de borda suave, um pouco mais escura */
+    --accent-color: #f39c12; /* Um tom de laranja para pequenos destaques */
+}
 
-            </div>
-            <!-- Adicione mais itens de vídeo conforme necessário -->
-        </div>
-        <button class="carousel-control next" onclick="nextSlide('physics-enem-carousel')">▶</button>
-    </div>
-</section>
+/* Estilos Gerais */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--secondary-blue);
+    color: var(--text-dark);
+}
 
+header {
+    background-color: var(--highlight-blue);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
 
-    <!-- Adicione mais seções conforme necessário -->
-<!-- Seção de Comentários -->
-<section id="comments-section" class="carousel-section hidden">
-    <div class="chat-container">
-        <div class="chat-box" id="chat-box"></div>
-        <div class="notification" id="notification"></div>
-        <form id="chat-form" enctype="multipart/form-data">
-            <input type="text" id="name-input" placeholder="Digite seu nome..." required>
-            <input type="text" id="message-input" placeholder="Digite uma mensagem...">
-            <input type="file" id="file-input" accept="image/*,video/*,audio/*" style="display: none;">
-            <button type="button" id="attach-button">📎</button>
-            <button type="submit">Enviar</button>
-        </form>
-        <div id="stickers-container" class="stickers-container">
-            <!-- Exemplos de stickers -->
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0n4BfjbjCM-HCS2_lpC7Q0bspkJwfHWvTPQ&s" alt="Sticker 1" class="sticker" onclick="addSticker('sticker1.png')">
-            <img src="https://cdn-icons-png.flaticon.com/512/4185/4185776.png" alt="Sticker 2" class="sticker" onclick="addSticker('sticker2.png')">
-            <!-- Adicione mais stickers conforme necessário -->
-        </div>
-    </div>
-</section>
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
 
- 
-    
-   <!-- Novo Footer -->
-<footer>
-    <div class="footer-content">
-        <!-- Seção Sobre Nós -->
-        <div class="footer-section about">
-            <h3>Sobre Nós</h3>
-            <p>Socorre Ai! é uma plataforma dedicada a oferecer recursos educacionais de alta qualidade para ajudar você a se preparar para exames e aprimorar seus conhecimentos.</p>
-            <p>Nossa missão é fornecer ferramentas e informações valiosas para apoiar seu sucesso acadêmico e profissional. 
-                E Gratuito Só Aproveitar !!!
-                 </p>
-        </div>
+.logo {
+    width: 60px;
+    margin-right: 15px;
+}
 
-        <!-- Seção Links Rápidos -->
-        <div class="footer-section links">
-            <h3>Varis Categorias</h3>
-            <ul>
-                <li><a href="http://127.0.0.1:5500/Socorre-AI/index.html">Comentários</a></li>
-                <li><a href="http://127.0.0.1:5500/Socorre-AI/index.html">Contato</a></li>
-                <li><a href="http://127.0.0.1:5500/Socorre-AI/index.html">Calcular Média ENEM</a></li>
-                <li><a href="http://127.0.0.1:5500/Socorre-AI/index.html">Sobre Nós</a></li>
-            </ul>
-        </div>
+.search-bar {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid var(--primary-blue);
+    border-radius: 25px;
+    background-color: #FFFFFF;
+    color: var(--text-dark);
+    outline: none;
+    max-width: 500px;
+}
 
-        <!-- Seção Contato -->
-        <div class="footer-section contact">
-            <h3>Contato</h3>
-            <form id="contact-form">
-                <div class="input-group">
-                    <label for="contact-name">Nome:</label>
-                    <input type="text" id="contact-name" name="contact-name" required>
-                </div>
-                <div class="input-group">
-                    <label for="contact-email">E-mail:</label>
-                    <input type="email" id="contact-email" name="contact-email" required>
-                </div>
-                <div class="input-group">
-                    <label for="contact-message">Mensagem:</label>
-                    <textarea id="contact-message" name="contact-message" rows="3" required></textarea>
-                </div>
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
+.search-icon {
+    width: 30px;
+    margin-left: 10px;
+    cursor: pointer;
+}
 
-        <!-- Seção Redes Sociais e Logo -->
-        <div class="footer-section social-media">
-          
-            <h3>Redes Sociais</h3>
-            <ul>
-                <li><a href="https://www.facebook.com/login/?locale=pt_BR" target="_blank" aria-label="Facebook"><img src="https://cdn-icons-png.flaticon.com/128/4494/4494475.png" alt="Facebook"></a></li>
-                <li><a href="https://x.com/?lang=pt-br" target="_blank" aria-label="Twitter"><img src="https://cdn-icons-png.flaticon.com/128/4494/4494477.png" alt="Twitter"></a></li>
-                <li><a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><img src="https://cdn-icons-png.flaticon.com/128/2111/2111463.png" alt="Instagram"></a></li>
-                <li><a href="https://br.linkedin.com/" target="_blank" aria-label="LinkedIn"><img src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" alt="LinkedIn"></a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2024 Socorre Ai! Todos os direitos reservados.</p>
-        <p><a href="#privacy-policy">Política de Privacidade</a> | <a href="#terms-of-service">Termos de Serviço</a></p>
-    </div>
+.category-selector {
+    margin-top: 80px; /* Espaço para a barra de navegação fixa */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--secondary-blue);
+    flex-wrap: wrap;
+}
 
-</footer>
-<script src="//code.jivosite.com/widget/jsVlqtlzDw" async></script>
+.category-selector button {
+    padding: 10px 20px;
+    border: 2px solid var(--primary-blue);
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    color: var(--text-dark);
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-    <script src="scripts.js"></script>
-</body>
-</html>
+.category-selector button:hover {
+    background-color: var(--button-hover-color);
+}
 
+/* Estilos do carrossel */
+.carousel-section {
+    margin-top: 20px;
+    padding: 20px;
+}
 
+h2 {
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    font-size: 26px;
+    text-align: center;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1000px; /* Ajuste o tamanho máximo do carrossel se necessário */
+    margin: auto;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    align-items: center;
+    width: 100%;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item video {
+    border-radius: 15px;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.carousel-item img {
+    border-radius: 15px;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Estilos das setas do carrossel */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--highlight-blue);
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-control svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--text-dark);
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}
+
+/* Estilo de hover para setas */
+.carousel-control:hover {
+    background-color: var(--button-hover-color);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Seção de Enviar Redação */
+.submit-essay-section {
+    padding: 20px;
+    background-color: var(--highlight-blue);
+    border-radius: 10px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.submit-essay-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.drop-area {
+    border: 3px dashed var(--primary-blue);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--secondary-blue);
+    position: relative;
+    transition: background-color 0.3s;
+    width: 100%;
+    max-width: 600px;
+    cursor: pointer;
+    min-height: 150px; /* Garante uma altura mínima visível */
+}
+
+.drop-area.dragging {
+    background-color: var(--primary-blue);
+}
+
+.drop-instruction {
+    font-size: 16px;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+input[type="email"],
+input[type="text"] {
+    padding: 10px;
+    border: 2px solid var(--primary-blue);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 400px;
+    font-size: 16px;
+}
+
+button {
+    background-color: var(--button-color);
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: var(--button-hover-color);
+}
+
+button#whatsapp-button {
+    background-color: var(--whatsapp-green);
+}
+
+button#whatsapp-button:hover {
+    background-color: #1ebe56;
+}
+
+.response-message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--error-red);
+    color: #fff;
+    text-align: center;
+}
+/* Estilos para a seção de cálculo de média ENEM */
+.media-enem-container {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 16px;
+    color: #333;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#calculate-media-button {
+    background-color: #25D366;
+    border: none;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#calculate-media-button:hover {
+    background-color: #1DA851;
+}
+
+.result-message {
+    margin-top: 20px;
+}
+
+.result-message.hidden {
+    display: none;
+}
+
+.result-message h3 {
+    font-size: 20px;
+    color: #333;
+}
+
+.result-message p {
+    font-size: 16px;
+    color: #666;
+}
+/* Footer Styles */
+footer {
+    background-color: #001f3f; /* Azul muito escuro */
+    color: #ffffff; /* Branco */
+    padding: 20px 10px; /* Reduzir o espaçamento */
+    font-size: 0.8em; /* Tamanho da fonte reduzido */
+    border-top: 4px solid #003366; /* Azul escuro */
+    margin-top: 40px; /* Espaço acima do footer */
+    position: relative;
+    clear: both;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1000px; /* Reduzir a largura máxima */
+    margin: 0 auto; /* Centralizar o conteúdo */
+}
+
+.footer-section {
+    flex: 1;
+    margin: 10px;
+    min-width: 200px; /* Largura mínima reduzida */
+}
+
+.footer-section h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em; /* Tamanho da fonte reduzido */
+    font-weight: bold;
+    border-bottom: 2px solid #003366; /* Azul escuro */
+    padding-bottom: 8px; /* Espaço abaixo do texto */
+}
+
+.footer-section p,
+.footer-section ul {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin: 8px 0; /* Reduzir o espaçamento entre itens */
+}
+
+.footer-section ul li a {
+    color: #e0e0e0; /* Cinza claro para links */
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #00aaff; /* Azul claro quando em foco */
+    padding-left: 5px; /* Menor deslocamento ao passar o mouse */
+}
+
+.footer-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-section form .input-group {
+    margin-bottom: 10px; /* Reduzir o espaçamento entre grupos de inputs */
+}
+
+.footer-section form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #e0e0e0; /* Cinza claro para labels */
+}
+
+.footer-section form input,
+.footer-section form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #003366; /* Azul escuro */
+    border-radius: 4px;
+    background-color: #f4f4f4; /* Cinza claro para contraste */
+    color: #333333; /* Cor do texto */
+    font-size: 0.9em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra mais leve */
+}
+
+.footer-section form input:focus,
+.footer-section form textarea:focus {
+    border-color: #00aaff; /* Azul claro quando em foco */
+    outline: none;
+    box-shadow: 0 0 4px rgba(0, 170, 255, 0.5); /* Efeito de foco mais discreto */
+}
+
+.footer-section form button {
+    background-color: #003366;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-top: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.footer-section form button:hover {
+    background-color: #002244; /* Azul ainda mais escuro */
+}
+
+.footer-section.social-media ul {
+    display: flex;
+    gap: 10px; /* Reduzir o espaçamento entre ícones */
+}
+
+.footer-section.social-media ul li {
+    margin: 0;
+}
+
+.footer-section.social-media ul li a {
+    display: inline-block;
+}
+
+.footer-section.social-media ul li img {
+    width: 20px; /* Reduzir o tamanho dos ícones */
+    height: 20px;
+}
+
+.footer-logo {
+    display: block;
+    margin-bottom: 10px; /* Reduzir o espaçamento abaixo da logo */
+    text-align: center;
+}
+
+.footer-logo img {
+    max-width: 120px; /* Reduzir o tamanho da logo */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.footer-logo img:hover {
+    transform: scale(1.05); /* Efeito de aumento mais discreto ao passar o mouse */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px; /* Reduzir o espaçamento acima do rodapé inferior */
+    border-top: 1px solid #003366; /* Azul escuro */
+    padding-top: 10px;
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+    font-size: 0.8em; /* Tamanho da fonte reduzido */
+}
+
+.footer-bottom a {
+    color: #00aaff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+/* estilos.css */
+
+/* Estilo geral da seção de comentários */
+.carousel-section {
+    padding: 0;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    max-height: 600px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.chat-box {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    background-color: #e5ddd5; /* Cor de fundo semelhante ao WhatsApp */
+}
+
+.notification {
+    color: red;
+    margin: 5px;
+}
+
+#chat-form {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #f60202;
+    background-color: #ffffff;
+}
+
+#name-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+#message-input {
+    flex: 2;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+#file-input {
+    display: none;
+}
+
+#attach-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 10px;
+    color: #25d366; /* Cor do WhatsApp */
+}
+
+#attach-button:hover {
+    color: #128c7e;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #25d366; /* Cor do WhatsApp */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #128c7e;
+}
+
+.stickers-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+    background-color: #ffffff;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.sticker {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.sticker:hover {
+    transform: scale(1.1);
+}
+
+.chat-box img,
+.chat-box video {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 8px;
+    margin: 5px 0;
+}
+
+.chat-box audio {
+    display: block;
+    margin: 5px 0;
+    border-radius: 8px;
+}
+/* estilos.css */
+
+/* Estilo geral da seção de comentários */
+.carousel-section {
+    padding: 0;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    max-height: 600px;
+    border: 1px solid #00ef68;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #15b35f;
+}
+
+.chat-box {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    border-bottom: 1px solid #2cef67;
+    background-color: #17b419; /* Cor de fundo clara, semelhante ao fundo das mensagens do WhatsApp */
+}
+
+.notification {
+    color: red;
+    margin: 5px;
+}
+
+#chat-form {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: #ffffff; /* Fundo branco do formulário */
+}
+
+#name-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #64ee99;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+#message-input {
+    flex: 2;
+    padding: 10px;
+    border: 1px solid #82e9a9;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+#file-input {
+    display: none;
+}
+
+#attach-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 10px;
+    color: #25d366; /* Verde do WhatsApp */
+}
+
+#attach-button:hover {
+    color: #128c7e; /* Verde escuro do WhatsApp */
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #25d366; /* Verde do WhatsApp */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #128c7e; /* Verde escuro do WhatsApp */
+}
+
+.stickers-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+    background-color: #ffffff;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.sticker {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.sticker:hover {
+    transform: scale(1.1);
+}
+
+.chat-box img,
+.chat-box video {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 8px;
+    margin: 5px 0;
+}
+
+.chat-box audio {
+    display: block;
+    margin: 5px 0;
+    border-radius: 8px;
+}
 
 
 
