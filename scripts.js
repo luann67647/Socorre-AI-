@@ -1,4 +1,74 @@
 
+document.addEventListener('DOMContentLoaded', () => {
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    // Seleciona todos os elementos do quiz
+    const quizContainer = document.getElementById('quiz-enem');
+    const resultContainer = document.getElementById('result');
+    const questions = document.querySelectorAll('.quiz-question');
+    
+    // Função para exibir a pergunta atual
+    function showQuestion(index) {
+        questions.forEach((question, i) => {
+            question.classList.toggle('hidden', i !== index);
+        });
+        resultContainer.textContent = ''; // Limpa a área de resultados
+    }
+
+    // Função para verificar a resposta selecionada
+    function checkAnswer(selectedButton) {
+        const questionDiv = selectedButton.closest('.quiz-question');
+        const correctAnswer = questionDiv.getAttribute('data-correct-answer');
+        const selectedAnswer = selectedButton.getAttribute('data-answer');
+
+        // Verifica se a resposta está correta
+        if (selectedAnswer === correctAnswer) {
+            score++;
+            selectedButton.style.backgroundColor = 'lightgreen';
+        } else {
+            selectedButton.style.backgroundColor = 'lightcoral';
+        }
+
+        // Desabilita todos os botões após a seleção
+        questionDiv.querySelectorAll('button').forEach(button => {
+            button.disabled = true;
+        });
+
+        // Avança para a próxima pergunta ou mostra o resultado final
+        setTimeout(() => {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                showQuestion(currentQuestionIndex);
+            } else {
+                showResult();
+            }
+        }, 1000);
+    }
+
+    // Função para exibir o resultado final
+    function showResult() {
+        resultContainer.textContent = `Seu resultado: ${score} / ${questions.length}`;
+        const restartButton = document.createElement('button');
+        restartButton.textContent = 'Reiniciar Quiz';
+        restartButton.onclick = () => {
+            currentQuestionIndex = 0;
+            score = 0;
+            showQuestion(currentQuestionIndex);
+        };
+        resultContainer.appendChild(restartButton);
+    }
+
+    // Inicializa o quiz exibindo a primeira pergunta
+    showQuestion(currentQuestionIndex);
+
+    // Adiciona eventos de clique para os botões de resposta
+    quizContainer.addEventListener('click', (event) => {
+        if (event.target.tagName === 'BUTTON') {
+            checkAnswer(event.target);
+        }
+    });
+});
 
 // Função para navegar no carrossel
 function prevSlide(carouselId) {
@@ -38,7 +108,20 @@ function nextSlide(carouselId) {
     // Ajusta a posição do carrossel
     container.style.transform = `translateX(-${nextIndex * 100}%)`;
 }
+document.getElementById('search-button').addEventListener('click', function() {
+    var query = document.getElementById('search-bar').value;
+    if (query) {
+        // Substitua 'https://seusite.com/videos' pelo URL real do seu sistema de pesquisa de vídeos
+        window.location.href = 'https://seusite.com/videos?search=' + encodeURIComponent(query);
+    }
+});
 
+// Opcional: Permitir que a pesquisa seja realizada ao pressionar Enter
+document.getElementById('search-bar').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        document.getElementById('search-button').click();
+    }
+});
 // Inicialização dos carrosséis
 document.addEventListener('DOMContentLoaded', () => {
     const carousels = document.querySelectorAll('.carousel');
@@ -504,6 +587,7 @@ document.getElementById('postar-redacao-form').addEventListener('submit', functi
     }
 });
 
+
 // Lidar com o formulário de avaliação de redação
 document.getElementById('avaliar-redacao-form').addEventListener('submit', function (event) {
     event.preventDefault();
@@ -531,5 +615,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
 });
+
 
 
