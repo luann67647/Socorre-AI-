@@ -169,24 +169,52 @@ function showSection(sectionId) {
     }
 }
 
-// Adiciona um evento de envio ao formulário de cálculo de média ENEM
 document.getElementById('media-enem-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
+    // Obtendo as notas
     const notaLinguagens = parseFloat(document.getElementById('nota-linguagens').value);
     const notaMatematica = parseFloat(document.getElementById('nota-matematica').value);
     const notaCienciasNatureza = parseFloat(document.getElementById('nota-ciencias-natureza').value);
     const notaCienciasHumanas = parseFloat(document.getElementById('nota-ciencias-humanas').value);
     const notaRedacao = parseFloat(document.getElementById('nota-redacao').value);
 
-    if (!isNaN(notaLinguagens) && !isNaN(notaMatematica) && !isNaN(notaCienciasNatureza) && !isNaN(notaCienciasHumanas) && !isNaN(notaRedacao)) {
-        const media = (notaLinguagens + notaMatematica + notaCienciasNatureza + notaCienciasHumanas + notaRedacao) / 5;
+    // Calculando a média
+    const media = (notaLinguagens + notaMatematica + notaCienciasNatureza + notaCienciasHumanas + notaRedacao) / 5;
+    
+    // Mostrando a média
+    document.getElementById('average-score').textContent = `Média: ${media.toFixed(2)}`;
 
-        // Exibe o resultado
-        document.getElementById('average-score').textContent = `Média: ${media.toFixed(2)}`;
-        document.getElementById('result-message').classList.remove('hidden');
+    // Obtendo a faculdade escolhida e sua nota de corte
+    const faculdade = document.getElementById('faculdade').value;
+    let notaDeCorte;
+
+    switch(faculdade) {
+        case 'usp':
+            notaDeCorte = 750;
+            break;
+        case 'unicamp':
+            notaDeCorte = 740;
+            break;
+        case 'ufrj':
+            notaDeCorte = 730;
+            break;
+        case 'unesp':
+            notaDeCorte = 720;
+            break;
+        default:
+            notaDeCorte = 0;
     }
+
+    // Verificando se passou na faculdade escolhida
+    const passou = media >= notaDeCorte;
+    const resultado = passou ? 'Parabéns, você passou!' : 'Infelizmente, você não passou.';
+
+    // Mostrando o resultado
+    document.getElementById('admission-result').textContent = resultado;
+    document.getElementById('result-message').classList.remove('hidden');
 });
+
 // script.js
 
 // Função para exibir a seção desejada
@@ -479,6 +507,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
 });
+
+
 
 
 
