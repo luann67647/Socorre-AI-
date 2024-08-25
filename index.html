@@ -9,13 +9,15 @@
 
 </head>
 <body>
+ <!-- Barra de Pesquisa -->
 <header>
     <div class="search-bar-container">
-        <img src="https://i.pinimg.com/736x/81/ab/e8/81abe8103d8cfcb70854fae0717d74fc.jpg" class="logo">
+        <img src="https://static.vecteezy.com/ti/vetor-gratis/p3/20618054-de-icone-de-sinal-de-socorro-sos-para-design-grafico-logotipo-site-midia-social-aplicativo-movel-ilustracao-de-interface-do-usuario-vetor.jpg" alt="Logo" class="logo">
         <input type="text" class="search-bar" placeholder="Pesquisar vídeos...">
         <button type="submit" class="search-button">Pesquisar</button>
     </div>
 </header>
+
 </header>
     <!-- Seletor de Categoria -->
     <section class="category-selector">
@@ -137,8 +139,7 @@
         </div>
     </section>
 
-
-    <!-- Seção de Cálculo de Média ENEM -->
+<!-- Seção de Cálculo de Média ENEM -->
 <section id="media-enem" class="carousel-section hidden">
     <h2>Cálculo da Média ENEM</h2>
     <div id="media-enem-container" class="media-enem-container">
@@ -163,14 +164,27 @@
                 <label for="nota-redacao">Nota da Redação:</label>
                 <input type="number" id="nota-redacao" name="nota-redacao" min="0" max="1000" required>
             </div>
+            <div class="input-group">
+                <label for="faculdade">Escolha a Faculdade:</label>
+                <select id="faculdade" name="faculdade" required>
+                    <option value="" disabled selected>Selecione a faculdade</option>
+                    <option value="usp">USP - Nota de Corte: 750</option>
+                    <option value="unicamp">UNICAMP - Nota de Corte: 740</option>
+                    <option value="ufrj">UFRJ - Nota de Corte: 730</option>
+                    <option value="unesp">UNESP - Nota de Corte: 720</option>
+                    <!-- Adicione mais opções conforme necessário -->
+                </select>
+            </div>
             <button id="calculate-media-button" type="submit">Calcular Média</button>
         </form>
         <div id="result-message" class="result-message hidden">
             <h3>Resultado da Média ENEM</h3>
             <p id="average-score">Média: </p>
+            <p id="admission-result">Resultado: </p>
         </div>
     </div>
 </section>
+
 
 <!-- Botão para exibir a seção de cálculo de média ENEM -->
 <button onclick="showSection('media-enem')">Calcular Média ENEM</button>
@@ -586,6 +600,28 @@
     <script src="scripts.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
