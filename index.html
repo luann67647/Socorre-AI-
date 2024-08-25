@@ -6,16 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Socorre Ai!</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="mobile.css"> <!-- Folha de estilos para dispositivos móveis -->
 
 </head>
 <body>
   <!-- Barra de Pesquisa -->
 <header>
     <div class="search-bar-container">
-        <img src="https://img.myloview.com.br/posters/ajuda-mao-cuidados-vector-logo-700-153018141.jpg" alt="Logo" class="logo">
+        <img src="" alt="Logo" class="logo">
         <input type="text" class="search-bar" placeholder="Pesquisar vídeos...">
-        <button id="login-button" onclick="window.location.href='//enem.inep.gov.br/participante/#!/';">Login</button> <!-- Botão de Login -->
     </div>
 </header>
 
@@ -38,54 +36,10 @@
         <button onclick="showSection('avaliar-redacao')">Avaliar Redação</button>
         <button onclick="showSection('correct-essay')">Media Enem</button>
         <button onclick="showSection('comments-section')">Bate Papo</button>
-        <button onclick="showSection('quiz-enem')">Quiz ENEM</button>
 
 
     </section>
-      <!-- Outros botões -->
-    </section>
-
-    <section id="quiz-enem" class="hidden">
-        <h2>Quiz ENEM</h2>
-        <div class="quiz-container">
-            <!-- Perguntas e opções do quiz -->
-            <div id="quiz-container">
-                <!-- Pergunta 1 -->
-                <div class="quiz-question" data-correct-answer="a">
-                    <p>1. Qual é o valor de x na equação 2x + 5 = 15?</p>
-                    <div class="button-group">
-                        <button onclick="checkAnswer('a', this)">5</button>
-                        <button onclick="checkAnswer('b', this)">10</button>
-                        <button onclick="checkAnswer('c', this)">15</button>
-                        <button onclick="checkAnswer('d', this)">20</button>
-                    </div>
-                </div>
-                
-                <!-- Pergunta 2 -->
-                <div class="quiz-question" data-correct-answer="b">
-                    <p>2. Qual é a fórmula da velocidade média?</p>
-                    <div class="button-group">
-                        <button onclick="checkAnswer('a', this)">d/t</button>
-                        <button onclick="checkAnswer('b', this)">s/t</button>
-                        <button onclick="checkAnswer('c', this)">s × t</button>
-                        <button onclick="checkAnswer('d', this)">t/s</button>
-                    </div>
-                </div>
-                
-                <!-- Pergunta 3 -->
-                <div class="quiz-question" data-correct-answer="c">
-                    <p>3. Quem escreveu "Dom Casmurro"?</p>
-                    <div class="button-group">
-                        <button onclick="checkAnswer('a', this)">José de Alencar</button>
-                        <button onclick="checkAnswer('b', this)">Machado de Assis</button>
-                        <button onclick="checkAnswer('c', this)">Jorge Amado</button>
-                        <button onclick="checkAnswer('d', this)">Graciliano Ramos</button>
-                    </div>
-                </div>
-                
-                <!-- Adicione mais perguntas aqui -->
-            </div>
-        </div>
+               
     </section>
    
     <!-- Seção de Postagem de Redação -->
@@ -633,6 +587,13 @@
     <script src="scripts.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
 
 
 
