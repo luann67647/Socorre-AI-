@@ -985,5 +985,51 @@ body {
 }
 
 
+/* Estilos globais (não específicos para a imagem e o botão) */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f0f0;
+}
 
+/* Estilos específicos para a seção interativa */
+.interactive-section {
+    text-align: center;
+    padding: 20px; /* Adiciona algum espaçamento interno */
+}
+
+/* Estilos específicos para a imagem */
+#interactive-image {
+    width: 300px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#interactive-image:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos específicos para o botão "Iniciar Quiz" */
+.quiz-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 20px;
+}
+
+.quiz-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.quiz-button:active {
+    background-color: #004080;
+    transform: scale(1.02);
+}
 
