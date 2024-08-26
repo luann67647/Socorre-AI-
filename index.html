@@ -169,17 +169,41 @@
                 <label for="nota-redacao">Nota da Redação:</label>
                 <input type="number" id="nota-redacao" name="nota-redacao" min="0" max="1000" required>
             </div>
-            <div class="input-group">
-                <label for="faculdade">Escolha a Faculdade:</label>
-                <select id="faculdade" name="faculdade" required>
-                    <option value="" disabled selected>Selecione a faculdade</option>
-                    <option value="usp">USP - Nota de Corte: 750</option>
-                    <option value="unicamp">UNICAMP - Nota de Corte: 740</option>
-                    <option value="ufrj">UFRJ - Nota de Corte: 730</option>
-                    <option value="unesp">UNESP - Nota de Corte: 720</option>
-                    <!-- Adicione mais opções conforme necessário -->
-                </select>
-            </div>
+           <div class="input-group">
+    <label for="faculdade">Escolha a Faculdade:</label>
+    <select id="faculdade" name="faculdade" required>
+        <option value="" disabled selected>Selecione a faculdade</option>
+        <option value="usp">USP - Direito: 750, Medicina: 825, Gastronomia: 700</option>
+        <option value="unicamp">UNICAMP - Direito: 740, Medicina: 815, Gastronomia: 690</option>
+        <option value="ufrj">UFRJ - Direito: 730, Medicina: 805, Gastronomia: 680</option>
+        <option value="unesp">UNESP - Direito: 720, Medicina: 795, Gastronomia: 670</option>
+        <option value="ufsc">UFSC - Direito: 710, Medicina: 780, Gastronomia: 660</option>
+        <option value="ufmg">UFMG - Direito: 705, Medicina: 770, Gastronomia: 655</option>
+        <option value="ufba">UFBA - Direito: 700, Medicina: 760, Gastronomia: 650</option>
+        <option value="ufo">UFO - Direito: 690, Medicina: 750, Gastronomia: 640</option>
+        <option value="ufpe">UFPE - Direito: 685, Medicina: 740, Gastronomia: 635</option>
+        <option value="ufrgs">UFRGS - Direito: 680, Medicina: 730, Gastronomia: 630</option>
+        <option value="uerr">UERR - Direito: 675, Medicina: 720, Gastronomia: 625</option>
+        <option value="ufac">UFAC - Direito: 670, Medicina: 710, Gastronomia: 620</option>
+        <option value="ufpa">UFPA - Direito: 660, Medicina: 700, Gastronomia: 610</option>
+        <option value="ueg">UEG - Direito: 655, Medicina: 690, Gastronomia: 605</option>
+        <option value="uema">UEMA - Direito: 650, Medicina: 680, Gastronomia: 600</option>
+        <option value="uea">UEA - Direito: 645, Medicina: 670, Gastronomia: 595</option>
+        <option value="faminas_muriae">FAMINAS Muriaé - Direito: 620, Medicina: 850, Gastronomia: 580</option>
+        <option value="puc_rio">PUC-Rio - Direito: 710, Medicina: 800, Gastronomia: 670</option>
+        <option value="puc_sp">PUC-SP - Direito: 700, Medicina: 790, Gastronomia: 660</option>
+        <option value="faap">FAAP - Direito: 695, Medicina: 780, Gastronomia: 650</option>
+        <option value="insper">Insper - Direito: 690, Medicina: 770, Gastronomia: 645</option>
+        <option value="espm">ESPM - Direito: 680, Medicina: 760, Gastronomia: 635</option>
+        <option value="fiam">FIAM-FAAM - Direito: 670, Medicina: 750, Gastronomia: 625</option>
+        <option value="mackenzie">Mackenzie - Direito: 665, Medicina: 740, Gastronomia: 620</option>
+        <option value="unifesp">UNIFESP - Direito: 660, Medicina: 730, Gastronomia: 610</option>
+        <option value="unip">UNIP - Direito: 650, Medicina: 720, Gastronomia: 605</option>
+        <option value="unisanta">UNISANTA - Direito: 645, Medicina: 710, Gastronomia: 600</option>
+        <option value="ufv">UFV - Direito: 670, Medicina: 780, Gastronomia: 625</option>
+        <!-- Adicione mais opções conforme necessário -->
+    </select>
+</div>
             <button id="calculate-media-button" type="submit">Calcular Média</button>
         </form>
         <div id="result-message" class="result-message hidden">
