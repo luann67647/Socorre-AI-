@@ -1,4 +1,26 @@
+  // JavaScript para funcionalidades adicionais
+  const startQuizButton = document.getElementById('start-quiz-btn');
+  const interactiveImage = document.getElementById('interactive-image');
 
+  startQuizButton.addEventListener('click', () => {
+      alert('Quiz iniciado! Boa sorte!');
+  });
+
+  interactiveImage.addEventListener('click', () => {
+      alert('Imagem clicada!');
+  });
+
+  function fadeInImage() {
+      interactiveImage.style.opacity = 0;
+      let opacity = 0;
+      const interval = setInterval(() => {
+          opacity += 0.05;
+          interactiveImage.style.opacity = opacity;
+          if (opacity >= 1) clearInterval(interval);
+      }, 30);
+  }
+
+  window.addEventListener('load', fadeInImage);
 
 
 // Função para ir para o slide anterior
@@ -507,6 +529,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
 });
+
+
+
+
+
 
 
 
