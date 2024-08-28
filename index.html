@@ -85,10 +85,7 @@
                 </div>
                 <button id="submit-redacao-button" type="submit">Postar Redação</button>
             </form>
-            <div id="submission-message" class="submission-message hidden">
-                <h3>Resultado do Post</h3>
-                <p id="submission-status">Sua redação foi postada com sucesso!</p>
-            </div>
+         
         </div>
     </section>
     
@@ -100,49 +97,55 @@
             <!-- As redações serão carregadas aqui -->
         </div>
     </section>
-
-    <!-- Seção de Avaliação de Redação -->
-    <section id="avaliar-redacao" class="carousel-section hidden">
-        <h2>Avaliar Redação</h2>
-        <div id="avaliar-redacao-container">
-            <form id="avaliar-redacao-form">
-                <div class="input-group">
-                    <label for="redacao-nome">Nome da Avaliadora </label>
-                    <input type="text" id="Avaliadora-nome" name="redacao-nome" placeholder="Nome da Avaliadora" required>
-                </div>
-                <div class="input-group">
-                    <label for="nota">Nota Geral (0 a 1000):</label>
-                    <input type="number" id="nota" name="nota" min="0" max="1000" required>
-                </div>
-                <div class="input-group">
-                    <label for="repertorios">Repertórios:</label>
-                    <input type="number" id="repertorios" name="repertorios" min="0" max="200" required>
-                </div>
-                <div class="input-group">
-                    <label for="argumentacao">Argumentação:</label>
-                    <input type="number" id="argumentacao" name="argumentacao" min="0" max="200" required>
-                </div>
-                <div class="input-group">
-                    <label for="coerencia">Coerência e Coesão:</label>
-                    <input type="number" id="coerencia" name="coerencia" min="0" max="200" required>
-                </div>
-                <div class="input-group">
-                    <label for="normas">Normas de Escrita:</label>
-                    <input type="number" id="normas" name="normas" min="0" max="200" required>
-                </div>
-                <div class="input-group">
-                    <label for="comentarios">Comentários e Pontos a Melhorar:</label>
-                    <textarea id="comentarios" name="comentarios" rows="5" required></textarea>
-                </div>
-                <button id="submit-avaliacao-button" type="submit">Enviar Avaliação</button>
-            </form>
-            <div id="feedback-message" class="feedback-message hidden">
-                <h3>Resultado da Avaliação</h3>
-                <p id="feedback-status">A avaliação foi enviada com sucesso!</p>
+  <!-- Seção de Avaliação de Redação -->
+<section id="avaliar-redacao" class="carousel-section hidden">
+    <h2>Avaliar Redação</h2>
+    <div id="avaliar-redacao-container">
+        <form id="avaliar-redacao-form">
+            <div class="input-group">
+                <label for="avaliadora-email">Seu Email</label>
+                <input type="email" id="avaliadora-email" name="avaliadora-email" placeholder="Seu Email" required>
             </div>
+            <div class="input-group">
+                <label for="email-destino">Email de Destino</label>
+                <input type="email" id="email-destino" name="email-destino" placeholder="Email para onde enviar a avaliação" required>
+            </div>
+            <div class="input-group">
+                <label for="Avaliadora-nome">Nome da Avaliadora</label>
+                <input type="text" id="Avaliadora-nome" name="redacao-nome" placeholder="Nome da Avaliadora" required>
+            </div>
+            <div class="input-group">
+                <label for="nota">Nota Geral (0 a 1000):</label>
+                <input type="number" id="nota" name="nota" min="0" max="1000" required>
+            </div>
+            <div class="input-group">
+                <label for="repertorios">Repertórios:</label>
+                <input type="number" id="repertorios" name="repertorios" min="0" max="200" required>
+            </div>
+            <div class="input-group">
+                <label for="argumentacao">Argumentação:</label>
+                <input type="number" id="argumentacao" name="argumentacao" min="0" max="200" required>
+            </div>
+            <div class="input-group">
+                <label for="coerencia">Coerência e Coesão:</label>
+                <input type="number" id="coerencia" name="coerencia" min="0" max="200" required>
+            </div>
+            <div class="input-group">
+                <label for="normas">Normas de Escrita:</label>
+                <input type="number" id="normas" name="normas" min="0" max="200" required>
+            </div>
+            <div class="input-group">
+                <label for="comentarios">Comentários e Pontos a Melhorar:</label>
+                <textarea id="comentarios" name="comentarios" rows="5" required></textarea>
+            </div>
+            <button id="submit-avaliacao-button" type="submit">Enviar Avaliação</button>
+        </form>
+        <div id="feedback-message" class="feedback-message hidden">
+            <h3>Resultado da Avaliação</h3>
+            <p id="feedback-status">A avaliação foi enviada com sucesso!</p>
         </div>
-    </section>
-    
+    </div>
+</section>
 
 <!-- Seção de Cálculo de Média ENEM -->
 <section id="media-enem" class="carousel-section hidden">
@@ -646,6 +649,12 @@
     <script src="scripts.js"></script>
 </body>
 </html>
+
+
+
+
+
+
 
 
 
