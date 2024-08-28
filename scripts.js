@@ -1,3 +1,56 @@
+  
+  document.getElementById('avaliar-redacao-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita o envio padrão do formulário
+
+    // Coleta os dados do formulário
+    const avaliadoraEmail = document.getElementById('avaliadora-email').value;
+    const emailDestino = document.getElementById('email-destino').value;
+    const nome = document.getElementById('Avaliadora-nome').value;
+    const nota = document.getElementById('nota').value;
+    const repertorios = document.getElementById('repertorios').value;
+    const argumentacao = document.getElementById('argumentacao').value;
+    const coerencia = document.getElementById('coerencia').value;
+    const normas = document.getElementById('normas').value;
+    const comentarios = document.getElementById('comentarios').value;
+
+    // Valida os dados
+    if (!avaliadoraEmail || !emailDestino || !nome || !nota || !repertorios || !argumentacao || !coerencia || !normas || !comentarios) {
+        alert('Todos os campos devem ser preenchidos.');
+        return;
+    }
+
+    // Envia os dados para o servidor
+    fetch('/enviar-avaliacao', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            avaliadoraEmail,
+            emailDestino,
+            nome,
+            nota,
+            repertorios,
+            argumentacao,
+            coerencia,
+            normas,
+            comentarios
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            document.getElementById('feedback-status').innerText = 'A avaliação foi enviada com sucesso!';
+        } else {
+            document.getElementById('feedback-status').innerText = 'Erro ao enviar a avaliação.';
+        }
+        document.getElementById('feedback-message').classList.remove('hidden');
+    })
+    .catch(error => {
+        console.error('Erro ao enviar a avaliação:', error);
+        alert('Ocorreu um erro ao enviar a avaliação. Tente novamente.');
+    });
+});
   // JavaScript para funcionalidades adicionais
   const startQuizButton = document.getElementById('start-quiz-btn');
   const interactiveImage = document.getElementById('interactive-image');
