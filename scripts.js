@@ -1,4 +1,4 @@
-  
+    
   document.getElementById('avaliar-redacao-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Evita o envio padrão do formulário
 
@@ -51,19 +51,19 @@
         alert('Ocorreu um erro ao enviar a avaliação. Tente novamente.');
     });
 });
-  // JavaScript para funcionalidades adicionais
-  const startQuizButton = document.getElementById('start-quiz-btn');
-  const interactiveImage = document.getElementById('interactive-image');
+// script.js
+const startQuizButton = document.getElementById('start-quiz-btn');
+const interactiveImage = document.getElementById('interactive-image');
 
-  startQuizButton.addEventListener('click', () => {
-      alert('Quiz iniciado! Boa sorte!');
-  });
+startQuizButton.addEventListener('click', () => {
+    alert('Quiz iniciado! Boa sorte!');
+});
 
-  interactiveImage.addEventListener('click', () => {
-      alert('Imagem clicada!');
-  });
+interactiveImage.addEventListener('click', () => {
+    alert('Imagem clicada!');
+});
 
-  function fadeInImage() {
+    function fadeInImage() {
       interactiveImage.style.opacity = 0;
       let opacity = 0;
       const interval = setInterval(() => {
@@ -587,6 +587,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
+
+
+
+
+
+
+  
 
 
 
