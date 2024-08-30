@@ -1032,4 +1032,27 @@ body {
     background-color: #004080;
     transform: scale(1.02);
 }
+/* Adiciona um espaço entre a imagem e o botão */
+#interactive-image {
+    display: block; /* Garante que a imagem seja tratada como um bloco */
+    margin: 0 auto; /* Centraliza a imagem dentro do contêiner */
+}
+
+.quiz-button {
+    display: block; /* Garante que o botão seja tratado como um bloco */
+    margin: 20px auto 0; /* Espaçamento acima do botão (20px), centralizado horizontalmente */
+    padding: 10px 20px; /* Adiciona algum preenchimento ao botão */
+    font-size: 16px; /* Ajusta o tamanho da fonte do botão */
+    cursor: pointer; /* Mostra um cursor de ponteiro ao passar sobre o botão */
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remove a borda do botão */
+    border-radius: 5px; /* Adiciona bordas arredondadas ao botão */
+    transition: background-color 0.3s; /* Adiciona um efeito de transição para a cor de fundo */
+}
+
+.quiz-button:hover {
+    background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+}
+
 
